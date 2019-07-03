@@ -48,15 +48,19 @@ $(document).ready(function(){
                 
                      $.each(data.list, function(key, val) {
                          
-                          var me = this.dt;//save `this` reference
+                          var me = this;//save `this` reference
                           //console.log(val);
+                         
                           $.each(val, function(i, j){
-                           var listMain = me.main;//use `this` from outer scope
+                          
+                           var listMain = me.dt;//use `this` from outer scope
                            var listWind = me.wind;//use `this` from outer scope
-                           var listClouds = this.clouds;
-                           var listWeather = this.weather;
-                              
-                             console.log(val.weather);
+                           var listClouds = me.clouds;
+                           var listWeather = me.weather;
+                            
+                                   
+                $(".counties").append("Name of object:" + i + "<br>" + "Object Value (element):" + me.weather[0].id + "<br><br>");
+                             console.log(me.weather);
                           });
                      });
                 
